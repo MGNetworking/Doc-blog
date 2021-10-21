@@ -6,31 +6,33 @@
 Welcome to ghoverblog to doc's documentation!
 =============================================
 
-Les objectifs de ce projet sont multiples, il constitue une base d’expérience dans la mise en service 
+Les objectifs de ce projet sont multiples, il constitue une base d’expérience en création, gestion et mise à jour
 d’un site internet. 
 
-#. Il m'a permis d'expérimenté la gestion serveur :
+#. La création et la gestion d'un serveur virtuelle :
 
-   * La gestion d'un server linux "distribution ``Ubuntu``" ainsi que sa gestion distance via le terminal
-   * La parti réseau avec la gestion des domaines avec les redirection des requètes des utilisateurs via un routeur et un serveur proxy ``Apache serveur``.
+   * La création d'une machine virtuelle linux ``Ubuntu``, sont administration distance via le terminal
+   * La partie réseau avec l'achat du nom de domaines la gestion des sous domaines.
+   * La gestion d'un serveur Proxy avec ``Apache serveur`` pour la gestion des flux entrant sortant.
+   * La création d'une base de données ``PostgreSQL`` avec la gestion des permissions et la gestion sur le réseau local.
 
 #. La gestion de la sécurité du serveur et du site :
  
-   * Avec le pare-feu pour sécurisé tout les ports.
-   * Aussi la sécurtié du la base de données pour les gestion des connections sur reseau local et biensur la sécurité du site avec serveur de sécurité ``Keycloak`` qui va couvrire la sécurité du site.
+   * La gestion du pare-feu pour sécurisé tous les ports.
+   * La création d'un micro service de sécurité ``Keycloak`` avec la connection de celui-ci à Postgresql.
 
 #. La parti mise en service du site :
  
    * La parti Devops avec ``Jenkins`` qui permet la mise en production du site en correspondance avec ``Github``  
 
+L'objectif de ce blog et de posté des articles portant sur l'informatique faisant référence a d'autre article 
+ou des tutoriel.
 
-Il sera bien plus qu’un blog dans la mesure ou plusieurs personnes 
-pourront se connecter et créer du contenu et avoir une interaction de type commentaire ou autre sur leur publication. 
+Un espace commentaire sera dédier à chaque article permettant d'avoir un échange entre les utilisateurs connecter au site 
+qui souhaitre intervenir sur l'article.
 
-Cette documentation permet collecter les informations sur les choix qui ont était 
-réaliser dans la création du site. 
-
-Il a pour but de créer un aide-mémoire sur les choix est la prise de décision.
+Cette documentation permet de rassemblé tout les informations concernant la gestion et la création du site.  
+Dans cette objectif, celle servira d'aide-mémoire sur les choix et la compréhention.
 
 .. toctree::
    :maxdepth: 2
