@@ -34,10 +34,86 @@ qui souhaitre intervenir sur l'article.
 Cette documentation permet de rassemblé tout les informations concernant la gestion et la création du site.  
 Dans cette objectif, celle servira d'aide-mémoire sur les choix et la compréhention.
 
+.. Information sur serveur virtuelle Ubuntu 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Serveur :
 
+   Serveur/Installation du Ubuntu
+   Serveur/Installation/PostgreSQL
+   Serveur/Installation/Jenkins
+   Serveur/Installation/Apache serveur
+   Serveur/Installation/Git serveur
+
+   Serveur/Configuration/EtcKeeper
+   Serveur/Configuration/Connection SSH
+   Serveur/Configuration/Attribution d'une adresse IP fixe
+   Serveur/Configuration/Liste des paths 
+
+.. Info sur base de données
+.. toctree::
+   :maxdepth: 2
+   :caption: Base de données/Postgresql :
+   
+   Base de données/Postgresql/configuration
+   Base de données/Model conceptuelle de données
+   Base de données/Model logique de données
+   Base de données/Les Script
+
+.. Configuration Apache serveur
+.. toctree::
+   :maxdepth: 2
+   :caption: Apache serveur :
+
+   Apache serveur/Configuration
+
+.. Sécurité du serveur
+.. toctree::
+   :maxdepth: 2
+   :caption: Keycloak :
+
+   Keycloak/Qu'est-ce que Keycloak
+   Keycloak/Le protocole OIDC
+   Keycloak/Cas d'utilisation
+   Keycloak/Architecture
+   Keycloak/Le mode Standalone
+   Keycloak/Gestion de la base de données
+   Keycloak/Déclartion et chargement du driver
+   Keycloak/Configuration d'un Domaine
+
+   .. Sécurité du serveur
+.. toctree::
+   :maxdepth: 2
+   :caption: Sécurité :
+
+   Sécurité/pare-feu
+   Sécurité/SSL
+
+.. Information sur la parti production
+.. toctree::
+   :maxdepth: 2
+   :caption: Dévops :
+
+   Dévops/Github
+   Dévops/Jenkins/Description
+   Dévops/Jenkins/Webhooks et Job
+   Dévops/Articture Dev/prod
+
+.. Information sur la parti back-end Micro service Spring
+.. toctree::
+   :maxdepth: 2
+   :caption: back-end :
+
+   back-end/L'architecture du back-end
+   back-end/Le stokage des données utiliseur 
+
+.. Information sur la parti Front-end avec angular
+.. toctree::
+   :maxdepth: 2
+   :caption: Front-end :   
+
+   Front-end/Le template utilisé
+   Front-end/L'architecture du Front-end 
 
 
 Indices and tables
