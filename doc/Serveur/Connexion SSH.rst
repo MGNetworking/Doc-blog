@@ -1,8 +1,8 @@
-Connexion SSH
-#############
+2. Connexion SSH
+#################
 
 Introduction
-============
+=============
 
 Les connections au serveur s'exécute via un terminal en utilisant ``le protocole ssh`` (**Secure Shell**) qui et a la fois 
 un programme de communication et un protocole de connexion.
@@ -10,8 +10,8 @@ un programme de communication et un protocole de connexion.
 De base la connection ssh et automatiquement créer sur le port 22, tout fois pour des raison de sécurité 
 il est préconiez de le changer.
 
-Connexion au serveur
-====================
+1. Connexion au serveur
+========================
 
 .. code-block:: ps1
     :linenos:
@@ -29,9 +29,43 @@ Connexion au serveur
   si non vous n'avez pas mettre le ``-p`` et la connection ce feras automatiquement 
   sur le port 22.
 
+2. Configuration port SSH
+=========================
+Pour changer sont port ssh, il faut connaitre le port de configuration du serveur
 
-Configuration router
-====================
+.. code-block:: ps1
+    :linenos: 
+
+    sudo netstat -tulnp | grep ssh
+
+Ouvrir le fichier ``sshd_config`` avec votre éditeur de text préféré (**nano**),
+puis modifier le port de connexion au port voulut ici sera le port 51000. 
+
+.. code-block:: ps1
+    :linenos: 
+
+    sudo nano /etc/ssh/sshd_config
+
+.. image:: ../image/ubuntu_ssh_config.png
+      :width: 800
+      :alt: image config port SSH
+
+Puis décommenter les champs ``PubkeyAuthentication yes``
+
+.. image:: ../image/ubuntu_ssh_config_2.png
+      :width: 800
+      :alt: image config port SSH
+
+Une fois l'optération réaliser, il faut relancer le service en utilisant la commande 
+suivant.
+
+.. code-block:: ps1
+    :linenos: 
+
+    systemctl restart sshd
+
+3. Configuration router
+========================
 
 Pour pourvoir ce connecter à distance, il faut que le port de redirection soit paramétré.
 Dans cette exemple, une redirection de port a était créer via l’interface du router bbox. 
@@ -41,37 +75,8 @@ voir exemple ci-dessous.
       :width: 600
       :alt: image SSH serveur Ubuntu n°1
 
-Configuration port SSH
-======================
-Pour changer sont port ssh, il faut connaitre le port de configuration du serveur
 
-.. code-block:: ps1
-    :linenos: 
-
-    sudo netstat -tulnp | grep ssh
-
-Ouvrir le fichier ``sshd_config`` avec votre éditeur de text préféré (**nano**) ,
-puis modifier le port de connexion au port voulut ici sera le port 51000. 
-
-.. code-block:: ps1
-    :linenos: 
-
-    sudo nano /etc/ssh/sshd_config
-
-.. image:: ../image/ubuntu_ssh_config.png
-      :width: 600
-      :alt: image config port SSH
-
-Une l'optération réaliser, il faut relancer le service en utilisant la commande 
-suivant.
-
-.. code-block:: ps1
-    :linenos: 
-
-    systemctl restart sshd
-
-
-Liste des ports de connexion
+4. Liste des connexions SSH
 ============================
 Pour la connenction au Nas synology qui héberge la machine virtuelle Ubuntu_1 
 
@@ -80,15 +85,14 @@ Pour la connenction au Nas synology qui héberge la machine virtuelle Ubuntu_1
 
     ssh maxime@black_hole -p22
 
-Pour la connexion le serveur depuis de réseau local 
+Pour la connexion du serveur Ubuntu_1 depuis le réseau local 
 
 .. code-block:: ps1
     :linenos: 
 
-    ssh maxime@192.168.1.93  -p51000
+    ssh maxime@192.168.1.93 -p51000
 
-
-Pour la connexion au serveur depuis de réseau distant 
+Pour la connexion du serveur Ubuntu_1 depuis le réseau distant 
 
 .. code-block:: ps1
     :linenos:
