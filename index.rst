@@ -3,11 +3,11 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to ghoverblog to doc's documentation!
-=============================================
+Bienvenu dans la documentation du projet **ghoverblog** !
+==========================================================
 
-Les objectifs de ce projet sont multiples, il constitue une base d’expérience en création, gestion et mise à jour
-d’un site internet. 
+Ce projet a pluisieur objectif. Il constitue une base d’expérience solide en création, 
+gestion et mise à jour d’un site internet. 
 
 #. La création et la gestion d'un serveur virtuelle :
 
@@ -37,83 +37,86 @@ Dans cette objectif, celle servira d'aide-mémoire sur les choix et la compréhe
 .. Information sur serveur virtuelle Ubuntu 
 .. toctree::
    :maxdepth: 2
-   :caption: Serveur :
+   :caption: Ubuntu Serveur
 
-   Serveur/Installation du Ubuntu
-   Serveur/Installation/PostgreSQL
-   Serveur/Installation/Jenkins
-   Serveur/Installation/Apache serveur
-   Serveur/Installation/Git serveur
+   doc/Serveur/Installation du serveur Ubuntu
+   doc/Serveur/Connexion SSH
 
-   Serveur/Configuration/EtcKeeper
-   Serveur/Configuration/Connection SSH
-   Serveur/Configuration/Attribution d'une adresse IP fixe
-   Serveur/Configuration/Liste des paths 
+
+   doc/Serveur/Installation/PostgreSQL
+   doc/Serveur/Installation/Jenkins
+   doc/Serveur/Installation/Apache serveur
+   doc/Serveur/Installation/Git serveur
+
+   doc/Serveur/Configuration/EtcKeeper
+
+   doc/Serveur/Configuration/Attribution d'une adresse IP fixe
+   doc/Serveur/Configuration/Liste des paths 
 
 .. Info sur base de données
 .. toctree::
    :maxdepth: 2
    :caption: Base de données/Postgresql :
    
-   Base de données/Postgresql/configuration
-   Base de données/Model conceptuelle de données
-   Base de données/Model logique de données
-   Base de données/Les Script
+   doc/Base de données/Postgresql/configuration
+   doc/Base de données/Model conceptuelle de données
+   doc/Base de données/Model logique de données
+   doc/Base de données/Les Script
 
 .. Configuration Apache serveur
 .. toctree::
    :maxdepth: 2
    :caption: Apache serveur :
 
-   Apache serveur/Configuration
-
-.. Sécurité du serveur
-.. toctree::
-   :maxdepth: 2
-   :caption: Keycloak :
-
-   Keycloak/Qu'est-ce que Keycloak
-   Keycloak/Le protocole OIDC
-   Keycloak/Cas d'utilisation
-   Keycloak/Architecture
-   Keycloak/Le mode Standalone
-   Keycloak/Gestion de la base de données
-   Keycloak/Déclartion et chargement du driver
-   Keycloak/Configuration d'un Domaine
+   doc/Apache serveur/Configuration
 
    .. Sécurité du serveur
 .. toctree::
    :maxdepth: 2
    :caption: Sécurité :
 
-   Sécurité/pare-feu
-   Sécurité/SSL
-
-.. Information sur la parti production
-.. toctree::
-   :maxdepth: 2
-   :caption: Dévops :
-
-   Dévops/Github
-   Dévops/Jenkins/Description
-   Dévops/Jenkins/Webhooks et Job
-   Dévops/Articture Dev/prod
+   doc/Sécurité/pare-feu
+   doc/Sécurité/SSL
 
 .. Information sur la parti back-end Micro service Spring
 .. toctree::
    :maxdepth: 2
    :caption: back-end :
 
-   back-end/L'architecture du back-end
-   back-end/Le stokage des données utiliseur 
+   doc/back-end/L'architecture du back-end
+   doc/back-end/Le stokage des données utiliseur
 
 .. Information sur la parti Front-end avec angular
 .. toctree::
    :maxdepth: 2
-   :caption: Front-end :   
+   :caption: Front-end :
 
-   Front-end/Le template utilisé
-   Front-end/L'architecture du Front-end 
+   doc/Front-end/Le template utilisé
+   doc/Front-end/L'architecture du Front-end 
+
+.. Sécurité du serveur
+.. toctree::
+   :maxdepth: 2
+   :caption: Keycloak :
+
+   doc/Keycloak/Qu'est-ce que Keycloak
+   doc/Keycloak/Le protocole OIDC
+   doc/Keycloak/Cas d'utilisation
+   doc/Keycloak/Architecture
+   doc/Keycloak/Le mode Standalone
+   doc/Keycloak/Gestion de la base de données
+   doc/Keycloak/Déclartion et chargement du driver
+   doc/Keycloak/Configuration d'un Domaine
+
+.. Information sur la parti production
+.. toctree::
+   :maxdepth: 2
+   :caption: Dévops :
+
+   doc/Dévops/Github
+   doc/Dévops/Jenkins/Description
+   doc/Dévops/Jenkins/Webhooks et Job
+   doc/Dévops/Articture Dev/prod
 
 
 Indices and tables
