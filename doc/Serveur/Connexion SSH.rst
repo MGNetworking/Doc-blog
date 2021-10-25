@@ -13,7 +13,7 @@ il est préconiez de le changer.
 1. Connexion au serveur
 ========================
 
-.. code-block:: ps1
+.. code-block:: bash
     :linenos:
 
     ssh <username>@<adresse IP> -p <numero de port>
@@ -33,7 +33,7 @@ il est préconiez de le changer.
 =========================
 Pour changer sont port ssh, il faut connaitre le port de configuration du serveur
 
-.. code-block:: ps1
+.. code-block:: bash
     :linenos: 
 
     sudo netstat -tulnp | grep ssh
@@ -41,7 +41,7 @@ Pour changer sont port ssh, il faut connaitre le port de configuration du serveu
 Ouvrir le fichier ``sshd_config`` avec votre éditeur de text préféré (**nano**),
 puis modifier le port de connexion au port voulut ici sera le port 51000. 
 
-.. code-block:: ps1
+.. code-block:: bash
     :linenos: 
 
     sudo nano /etc/ssh/sshd_config
@@ -59,7 +59,7 @@ Puis décommenter les champs ``PubkeyAuthentication yes``
 Une fois l'optération réaliser, il faut relancer le service en utilisant la commande 
 suivant.
 
-.. code-block:: ps1
+.. code-block:: bash
     :linenos: 
 
     systemctl restart sshd
@@ -80,21 +80,21 @@ voir exemple ci-dessous.
 ============================
 Pour la connenction au Nas synology qui héberge la machine virtuelle Ubuntu_1 
 
-.. code-block:: ps1
+.. code-block:: bash
     :linenos:
 
     ssh maxime@black_hole -p22
 
 Pour la connexion du serveur Ubuntu_1 depuis le réseau local 
 
-.. code-block:: ps1
+.. code-block:: bash
     :linenos: 
 
     ssh maxime@192.168.1.93 -p51000
 
 Pour la connexion du serveur Ubuntu_1 depuis le réseau distant 
 
-.. code-block:: ps1
+.. code-block:: bash
     :linenos:
 
     ssh maxime@176.136.60.156 -p23
