@@ -431,7 +431,7 @@ Connection rapide sur la base de données postgres avec l'utilisateur postgres
     :linenos:
 
     \di     = liste des index
-    \dd     = liste les objets du Type contrainte, classe d\'opérateur, famille d\'opérateur, règle et trigger.
+    \dd     = liste les objets du Type contrainte, classe d opérateur, famille d opérateur, règle et trigger.
     \df     = liste les fonctions 2 sur 4
 
 .. code-block:: bash
@@ -439,7 +439,7 @@ Connection rapide sur la base de données postgres avec l'utilisateur postgres
 
     \du     = Liste les rôles de la base de données
     \dg     = idem
-    \dp     = Liste les tables, vues et séquences avec leur droits d\'accès associés.
+    \dp     = Liste les tables, vues et séquences avec leur droits d accès associés.
 
 
 .. code-block:: bash
@@ -456,16 +456,27 @@ Connection rapide sur la base de données postgres avec l'utilisateur postgres
     \q              = quitter psql 
     \c <'name db'>  = changement de base de données
 
+Pour listé tous base de données 
 
- 
+.. code-block:: bash
+    :linenos:
 
+    SELECT datname FROM pg_database WHERE datistemplate = false;
 
+Liste de tout les tables de la base de données courante 
+(étre connecter a une base de données avant pour en connaitre le nom de tout les tables)
 
+.. code-block:: bash
+    :linenos:
 
+    SELECT table_schema,table_name FROM information_schema.tables ORDER BY table_schema,table_name;
 
+Affiche la list des roles
 
+.. code-block:: bash
+    :linenos:
 
-
+    SELECT rolname FROM pg_roles;
 
 
 Ce tutoriel a était créer appartir de 

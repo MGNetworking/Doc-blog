@@ -42,8 +42,8 @@ Dans cette objectif, celle servira d'aide-mémoire sur les choix et la compréhe
    doc/Serveur/Installation du serveur Ubuntu
    doc/Serveur/Connexion SSH
    doc/Serveur/PostgreSQL
+   doc/Serveur/Jenkins
    
-   doc/Serveur/Installation/Jenkins
    doc/Serveur/Installation/Apache serveur
    doc/Serveur/Installation/Git serveur
 
