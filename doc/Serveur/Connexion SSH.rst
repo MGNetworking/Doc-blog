@@ -72,7 +72,7 @@ Dans cette exemple, une redirection de port a était créer via l’interface du
 voir exemple ci-dessous.
 
 .. image:: ../image/ubuntu_ssh_1.png
-      :width: 600
+      :width: 800
       :alt: image SSH serveur Ubuntu n°1
 
 
