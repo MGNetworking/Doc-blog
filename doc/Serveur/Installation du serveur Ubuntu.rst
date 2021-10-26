@@ -1,7 +1,7 @@
 1. Installation du serveur Ubuntu
 #################################
 
-Installation
+1. Installation
 =============
 
 Introduction
@@ -77,3 +77,49 @@ Il ne reste plus qu'a :
   vous pourrez toujours les installer par la suite.
 
 Et voila, lancer l’installation du serveur.
+
+2. Versionning Système
+======================
+
+`etckeeper <https://ubuntu.com/server/docs/tools-etckeeper>`_  est un système conçu pour suivre la configuration d'une machine 
+(répertoire /etc, d'où le nom) à l'aide d'un gestionnaire de versions (par exemple Git).
+
+Par défaut, etckeeper validera quotidiennement les modifications apportées au repertoire ``/etc``.etckeeper a été conçu par Joey Hess, 
+développeur Debian émérite, et est donc pensé pour s'intégrer à Debian : les modifications liées à l'installation ou à 
+la suppression d'un paquet sont enregistrées automatiquement mais peut être aussi utilisé manuellement.
+
+Ce mécanisme permet de connaître très rapidement les modifications qui ont été faites par rapport à la configuration originale 
+des paquets installés.
+
+Placer ``/etc`` sous contrôle de version est considéré comme une bonne pratique de l'industrie, 
+et l'objectif d'etckeeper est de rendre ce processus aussi simple que possible.
+
+1. Installation EtcKeeper
+--------------------------
+
+La commande reste simple procédé comme suite 
+
+.. code-block:: bash
+    :linenos: 
+
+    sudo apt-get install etckeeper
+
+Le fichier de configuration principal, /etc/etckeeper/etckeeper.conf, est assez simple. Par défaut, etckeeper est configuré pour utiliser 
+Le référentiel ``git``, il initialisé automatiquement(et validé pour la première fois) lors de l'installation du package. 
+Pour `plus d'info <https://ubuntu.com/server/docs/tools-etckeeper>`_ sur la configuration.
+
+
+1. List de commande 
+-------------------
+
+Linux man page `ici <https://linux.die.net/man/8/etckeeper>`_
+
+.. code-block:: bash
+    :linenos: 
+
+    sudo etckeeper commit
+    sudo etckeeper vcs status
+    sudo etckeeper vcs diff
+    sudo etckeeper vcs log
+    sudo etckeeper unclean
+
