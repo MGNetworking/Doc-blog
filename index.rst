@@ -43,12 +43,11 @@ Dans cette objectif, celle servira d'aide-mémoire sur les choix et la compréhe
    doc/Serveur/Connexion SSH
    doc/Serveur/PostgreSQL
    doc/Serveur/Jenkins
-   
-   doc/Serveur/Installation/Apache serveur
+   doc/Serveur/Apache serveur
+   doc/Serveur/Tomcat
+
+
    doc/Serveur/Installation/Git serveur
-
-   doc/Serveur/Configuration/EtcKeeper
-
    doc/Serveur/Configuration/Attribution d'une adresse IP fixe
    doc/Serveur/Configuration/Liste des paths 
 

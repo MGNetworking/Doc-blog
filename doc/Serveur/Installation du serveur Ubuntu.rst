@@ -1,8 +1,8 @@
 1. Installation du serveur Ubuntu
 #################################
 
-1. Installation
-=============
+Installation
+================
 
 Introduction
 --------------
@@ -24,7 +24,7 @@ Une fois créer cliquer sur connection et suivez les étapes de création :
 Pour créer une partition swap , suivre l’exemple ci-dessous
 
 
-1. Partition swap 
+Partition swap 
 -----------------
 Pour créer une partition swap , suivre l’exemple ci-dessous
 
@@ -38,7 +38,7 @@ Puis dans le menu de création de partition faire ci-dessous
     :width: 800
     :alt: image partition swap serveur Ubuntu n°2
 
-2. Partition root
+Partition root
 -----------------
 Après avoir ajouté la partition swap, il nous faut créer la partition root pour le système de la manière suivant.
 
@@ -78,7 +78,7 @@ Il ne reste plus qu'a :
 
 Et voila, lancer l’installation du serveur.
 
-2. Versionning Système
+Versionning Système
 ======================
 
 `etckeeper <https://ubuntu.com/server/docs/tools-etckeeper>`_  est un système conçu pour suivre la configuration d'une machine 
@@ -94,7 +94,7 @@ des paquets installés.
 Placer ``/etc`` sous contrôle de version est considéré comme une bonne pratique de l'industrie, 
 et l'objectif d'etckeeper est de rendre ce processus aussi simple que possible.
 
-1. Installation EtcKeeper
+Installation EtcKeeper
 --------------------------
 
 La commande reste simple procédé comme suite 
@@ -109,7 +109,7 @@ Le référentiel ``git``, il initialisé automatiquement(et validé pour la prem
 Pour `plus d'info <https://ubuntu.com/server/docs/tools-etckeeper>`_ sur la configuration.
 
 
-1. List de commande 
+List de commande 
 -------------------
 
 Linux man page `ici <https://linux.die.net/man/8/etckeeper>`_
@@ -123,3 +123,23 @@ Linux man page `ici <https://linux.die.net/man/8/etckeeper>`_
     sudo etckeeper vcs log
     sudo etckeeper unclean
 
+Java 
+========
+
+La version de Java
+
+.. code-block:: bash
+    :linenos:
+
+    java --version
+
+La localisation de la jvm sur le serveur
+
+.. code-block:: bash
+    :linenos:
+
+    cd /usr/lib/jvm
+
+.. image:: ../image/ubuntu_java_serveur.png
+      :width: 800
+      :alt: Java serveur repertoire
