@@ -27,12 +27,33 @@ Recherche des version de tomcat dans les dépots
 
     sudo apt-cache search tomcat 
 
+Puis pour l'installation entré :
+
 .. code-block:: bash
     :linenos:
 
     sudo apt install tomcat9 tomcat9-admin
 
+Aprés l'installation vérifier l’ouverture du port 8080 avec la commande suivant.
+Elle permet de voir tout les port d'écoute du serveur en activité.
 
+.. code-block:: bash
+    :linenos:
+
+    ss -ltn
+
+Quelque commande de gestion
+-----------------------------
+
+.. code-block:: bash
+    :linenos:
+
+    sudo systemctl status tomcat9
+    sudo systemctl restart tomcat9
+    sudo systemctl stop tomcat9
+    sudo systemctl start tomcat9
+
+Pour sortir du terminal utilsé `le ctrl + z`
 
 Configuration du module jk 
 ---------------------------

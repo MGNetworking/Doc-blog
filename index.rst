@@ -78,7 +78,7 @@ Dans cette objectif, celle servira d'aide-mémoire sur les choix et la compréhe
    .. Sécurité du serveur
 .. toctree::
    :maxdepth: 2
-   :caption: Sécurité :
+   :caption: Sécurité 
 
    doc/Sécurité/pare-feu
    doc/Sécurité/SSL
