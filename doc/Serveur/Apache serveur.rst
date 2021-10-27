@@ -11,6 +11,30 @@ Voici la commande d'installation d'apache sur le serveur Ubnutu_1
 
     sudo apt-get install apache2
 
+Connaitre la localisation de fichier d'apache serveur (apache2)
+
+.. image:: ../image/ubuntu_apache_localisation.png
+    :width: 800
+    :alt: image localisation des fichier d'apache2
+
+.. code-block:: bash
+    :linenos:
+
+     cd /etc/apache2/
+
+1. liste de commande rapide
+=============================
+
+.. code-block:: bash
+    :linenos:
+
+    sudo service apache2 status
+    sudo service apache2 start
+    sudo service apache2 stop
+    sudo service apache2 restart
+    sudo service apache2 reload
+
+
 Une fois apache installé, vous pouvez configuré plus type configuration. Dans ce document, 
 je vais exposé une configuration qui permettra de la gestion des flux vers une application ``Tomcat``
 Le paramétrage ce fera via le module JK. 
@@ -46,7 +70,7 @@ et vérifier la présence du fichier ``jk.load``
 
     cd /etc/apache2/mods-enabled
 
-1. Configuration prox revers avec le module (jk mod_jk)
+2. Configuration prox revers avec le module (jk mod_jk)
 ========================================================
 
 Liste des étapes a réaliser pour la configuration d'un proxy avec le ``mod_jk``
@@ -72,9 +96,6 @@ Voici une image des fichiers si trouvant
 3. Le fichier worker.properties
 ================================
 
-Préambule
-----------
-
 Avant de ce lancer dans les modification du fichier de properties, il faut que vous ayez 
 configuré le serveur Tomact. 
 Le secret qui doit étre renseigner dans la parti ``worker.ajp13_worker.secret``
@@ -83,8 +104,8 @@ Tomact => Configuration du module jk.
 Il faut donc, paramétre tomcat le complet possible afin d'arriver sur cette section avec 
 un max de paramétre finalisé.
 
-Un worker est pour le serveur Apache, une instance de Tomcat qui attend les requêtes 
-qu'il lui délivre. Il est possible de déclarer plusieurs workers. 
+`Un worker <http://eost.u-strasbg.fr/manual/fr/mod/worker.html>`_ est pour le serveur Apache, 
+une instance de Tomcat qui attend les requêtes qu'il lui délivre. Il est possible de déclarer plusieurs workers. 
 Dans ce cas, chaque worker aura son propre fichier de properties.
 
 Une fois paramétre votre worker, il doit étre déclaré dans le fichier de configuration 
@@ -208,7 +229,7 @@ tomcat ainsi la référence du path de la JVM. Voici un exemple complet.
 Pour en savoir plus sur la configuration de ``Tomact`` voir la section le concernant puis la parti 
 Configuration du ``module jk``.
 
-1. Le fichier de configuration httpd-jk.conf
+4. Le fichier de configuration httpd-jk.conf
 =============================================
 
 Ce fichier permettra de localiser le fichier ``worker.properties`` de situé le log et son le level
@@ -343,3 +364,69 @@ Description de la création du lien :
 - ``ln -s``                                      => création du lien symoblique 
 - ``/etc/apache2/conf-available/httpd-jk.conf``	=> répertoire source 
 - ``/etc/libapache2-mod-jk/``		            => répertoire destination
+
+
+5. Déclaration des préfixes de chemins réservés à Tomcat
+=============================================================
+
+Nous en avons presque fini avec le serveur Apache. Il ne reste plus qu'à lui indiquer quels sont 
+les préfixes de chemin d'URL pour lesquels il doit rediriger le flux HTTP vers le serveur Tomcat.
+
+Il faut pour cela créer un fichier de configuration de ces préfixes, cela veux dire que nous 
+allons créer le virtualhost.
+
+Il existe déjà 2 fichier d’exemple pour configuré un virtualhost, un pour le port par défaut 
+80 (http) et un port le port sécurisé 443 (https).
+
+Ce rendre dans le repertoire de gestion des fichiers httpd.conf
+
+.. code-block:: bash
+    :linenos:
+
+     cd /etc/apache2/sites-available/
+
+Pour evité tout chamgement sur ces fichier, je vais fair une copie du fichier ``000-default.conf``
+correspondant au port 80 vers un nouveau fichier ``001-blog.conf``
+
+.. code-block:: bash
+    :linenos:
+
+    cp 000-default.conf 001-blog.conf
+
+.. image:: ../image/ubuntu_apache_file_conf.png
+    :width: 800
+    :alt: image fichier conf
+
+Dans cette caputre d’écran on peut voir la déclaration au JkMount. Le ``/*`` represente le context 
+d’application. Dans notre cas présent c’est le repertoire racine de l’application.
+
+Il faut noté que le fichier war déployer a la racine de tomcat est en réalité nommé ROOT.war. 
+Cette configuration oblige a supprimer le fichier racine de tomcat pour la remplacer par celle de 
+notre application ``ROOT.war``.
+
+Cette astuce permet d’avoir une url avec le nom de domain sans ajout du context.
+Par exemple si notre application avais un context du type =>  ``/blo-JEE/``, avec le nom de 
+domain sa donnerais ``http://www.exemple/blog-JEE/``. Cela aurais pour effet de donné la possiblité à 
+l’utilisateur de pouvoir allez a l’adresse ``http://www.exemple/`` est donc il serait rediriger vers 
+la page de tomcat par défault.
+
+6. Activation du fichier des préfix d’url
+============================================
+
+Une fois que ce fichier est créer il faut l’activer. Quand on active dans apache un module ou autre chose, 
+on créer un lien symbolique. Dans notre cas on peut créer un lien symbolique de notre fichier avec la 
+commande suivant :
+
+.. code-block:: bash
+    :linenos:
+
+    sudo a2ensite 001-blog.conf
+
+voici le résultat :
+
+.. image:: ../image/ubuntu_apache_file_conf_2.png
+    :width: 800
+    :alt: image fichier conf
+
+Apres cela il faut redémarrer apache2, la commande est indiqué dans le terminal 
+apres cette excution.

@@ -1,6 +1,9 @@
 6. Tomcat
 #################
 
+Préambule
+----------
+
 Installation de tomcat sur Ubuntu server
 ----------------------------------------
 

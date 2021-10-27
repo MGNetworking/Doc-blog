@@ -188,6 +188,7 @@ qui permettra d'avoir quelque commande.
 
 1. Configuration pour la connexion distante 
 -------------------------------------------
+
 L'installation de PostgreSQL 13 sur Ubuntu n'accepte que les connexions de l'hôte local. 
 Dans les environnements de production idéaux, vous aurez un serveur de base de données 
 central et des clients distants qui s'y connectent - mais bien sûr au sein d'un 
@@ -267,7 +268,7 @@ pas particulairement de sécurité).
 Commande PostgreSQL
 ===================
 
-Preambule
+Préambule
 ----------
 
 PostgreSQL™ gère les droits d'accès aux bases de données en utilisant le concept de rôles. 

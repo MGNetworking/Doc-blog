@@ -3,11 +3,12 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Bienvenu dans la documentation du projet **ghoverblog** !
-==========================================================
+Documentation du blog **ghoverblog** !
+========================================
 
 Ce projet a pluisieur objectif. Il constitue une base d’expérience solide en création, 
 gestion et mise à jour d’un site internet. 
+
 
 #. La création et la gestion d'un serveur virtuelle :
 
@@ -24,6 +25,12 @@ gestion et mise à jour d’un site internet.
 #. La parti mise en service du site :
  
    * La parti Devops avec ``Jenkins`` qui permet la mise en production du site en correspondance avec ``Github``  
+
+
+.. image:: doc/image/decoration.jpg
+    :width: 250
+    :alt: image décoration informatique
+    :align: right
 
 L'objectif de ce blog et de posté des articles portant sur l'informatique faisant référence a d'autre article 
 ou des tutoriel.

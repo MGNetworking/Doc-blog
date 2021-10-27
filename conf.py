@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'My doc ghoverblog'
+project = 'Projet blog ghoverblog'
 copyright = '2021, Maxime'
 author = 'Maxime'
 
