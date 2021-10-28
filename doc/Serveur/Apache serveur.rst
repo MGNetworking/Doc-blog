@@ -22,7 +22,7 @@ Connaitre la localisation de fichier d'apache serveur (apache2)
 
      cd /etc/apache2/
 
-1. liste de commande rapide
+1. Liste de commande rapide
 =============================
 
 .. code-block:: bash
@@ -40,8 +40,8 @@ je vais exposé une configuration qui permettra de la gestion des flux vers une 
 Le paramétrage ce fera via le module JK. 
 Puis, j'exposerais la configration utilsé pour la mise en production du site ``ghoverblog``
 
-Gestion Module mod_jk
-----------------------
+Gestion Module mod_jk pour Tomcat
+----------------------------------
 
 1. Installation et activation du modul jk
 ====================================================
@@ -430,3 +430,69 @@ voici le résultat :
 
 Apres cela il faut redémarrer apache2, la commande est indiqué dans le terminal 
 apres cette excution.
+
+
+Gestion du revers Proxy pour ghoverblog
+----------------------------------------
+
+1. Préambule
+=============
+
+Un proxy inverse est un processus serveur qui accepte les connexions client et dirige 
+vers les serveurs d'applications principaux, comme ``Rapidminer Server``.
+
+Un proxy inverse fournit un niveau supplémentaire d'abstraction et de contrôle pour 
+assurer la fluidité du trafic réseau entre les clients et les serveurs. 
+
+Un proxy inverse peut être utilisé pour fournir un équilibrage de charge entre les 
+serveurs principaux ou pour améliorer la sécurité.
+
+Apache2 et Nginx sont deux implémentations populaires de serveurs Web et de proxy inverse. 
+La configuration de la sécurité est beaucoup plus facile au sein de ces technologies 
+que sur le serveur d'applications. 
+
+Le serveur d'applications vise à servir l'application 
+(Rapidminer Server), mais dans la plupart des cas ne se concentre pas sur la sécurité.
+
+Certains aspects de la sécurité (par exemple, HTTPS) peuvent également être configurés 
+sur le serveur JBoss (qui exécute le serveur Rapidminer), mais la plupart d'entre eux 
+(comme la fourniture d'en-têtes HTTP supplémentaires) ne sont pas disponibles.
+
+Un proxy inverse dédié offre une plus grande flexibilité.
+
+Pour utiliser Apache2 comme proxy inverse et activer la sécurité HTTPS dessus, 
+vous devez installer les packages de base Apache2 et vous assurer que les modules 
+``mod-ssl`` et ``mod-proxy`` y sont activés
+
+2. gestion des modules revers Proxy 
+======================================
+
+Pour utilisé activé le module ssl et le module proxy , nous devons utilisé 
+certain comande. Mais avant cela nous devons vérifier les modules activés
+
+Liste de tout les modules activé.
+
+.. code-block:: bash
+    :linenos:
+
+    sudo apachectl -t -D DUMP_MODULES
+
+voici le résultat 
+
+.. image:: ../image/ubuntu_apache_mod_active.png
+    :width: 800
+    :alt: image repertoire log tomcat9
+
+Dans cette exemple les module ssl et proxy sont déjà activé. Si vous devez les activés,
+utilisé les commande suivant.
+
+1. le module ssl
+2. le module reverse proxy
+
+.. code-block:: bash
+    :linenos:
+
+    a2enmod ssl
+    a2enmod proxy_http
+
+Une fois installer vérifier qu'il soit activé puis redémarrer le server apache.

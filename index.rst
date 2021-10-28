@@ -47,6 +47,7 @@ Dans cette objectif, celle servira d'aide-mémoire sur les choix et la compréhe
    :caption: Ubuntu Serveur
 
    doc/Serveur/Installation du serveur Ubuntu
+   doc/Serveur/Production
    doc/Serveur/Connexion SSH
    doc/Serveur/PostgreSQL
    doc/Serveur/Jenkins
