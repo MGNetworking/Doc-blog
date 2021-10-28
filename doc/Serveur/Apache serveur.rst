@@ -432,56 +432,54 @@ Apres cela il faut redémarrer apache2, la commande est indiqué dans le termina
 apres cette excution.
 
 
-Gestion du revers Proxy pour ghoverblog
-----------------------------------------
+Gestion du reverse Proxy pour ghoverblog
+-----------------------------------------
 
 1. Préambule
 =============
 
-Un proxy inverse est un processus serveur qui accepte les connexions client et dirige 
-vers les serveurs d'applications principaux, comme ``Rapidminer Server``.
+Un proxy inverse est 
+    un processus serveur qui accepte les connexions client et dirige 
+    vers les serveurs d'applications principaux, comme ``Rapidminer Server``.
+    Un proxy inverse fournit un niveau supplémentaire d'abstraction et de contrôle pour 
+    assurer la fluidité du trafic réseau entre les clients et les serveurs. 
 
-Un proxy inverse fournit un niveau supplémentaire d'abstraction et de contrôle pour 
-assurer la fluidité du trafic réseau entre les clients et les serveurs. 
+    Un proxy inverse peut être utilisé pour fournir un équilibrage de charge entre les 
+    serveurs principaux ou pour améliorer la sécurité.
 
-Un proxy inverse peut être utilisé pour fournir un équilibrage de charge entre les 
-serveurs principaux ou pour améliorer la sécurité.
+Apache2 et Nginx 
+    sont deux implémentations populaires de serveurs Web et de proxy inverse. 
+    La configuration de la sécurité est beaucoup plus facile au sein de ces technologies 
+    que sur le serveur d'applications. Le serveur d'applications vise à servir l'application 
+    (Rapidminer Server), mais dans la plupart des cas ne se concentre pas sur la sécurité.
 
-Apache2 et Nginx sont deux implémentations populaires de serveurs Web et de proxy inverse. 
-La configuration de la sécurité est beaucoup plus facile au sein de ces technologies 
-que sur le serveur d'applications. 
+    Certains aspects de la sécurité (par exemple, HTTPS) peuvent également être configurés 
+    sur le serveur JBoss (qui exécute le serveur Rapidminer), mais la plupart d'entre eux 
+    (comme la fourniture d'en-têtes HTTP supplémentaires) ne sont pas disponibles.
 
-Le serveur d'applications vise à servir l'application 
-(Rapidminer Server), mais dans la plupart des cas ne se concentre pas sur la sécurité.
+Un proxy inverse dédié offre une plus grande flexibilité.Pour utiliser Apache2 comme 
+proxy inverse et activer la sécurité HTTPS dessus, vous devez installer les packages 
+de base Apache2 et vous assurer que les modules ``mod-ssl`` et ``mod-proxy`` y sont 
+activés
 
-Certains aspects de la sécurité (par exemple, HTTPS) peuvent également être configurés 
-sur le serveur JBoss (qui exécute le serveur Rapidminer), mais la plupart d'entre eux 
-(comme la fourniture d'en-têtes HTTP supplémentaires) ne sont pas disponibles.
-
-Un proxy inverse dédié offre une plus grande flexibilité.
-
-Pour utiliser Apache2 comme proxy inverse et activer la sécurité HTTPS dessus, 
-vous devez installer les packages de base Apache2 et vous assurer que les modules 
-``mod-ssl`` et ``mod-proxy`` y sont activés
-
-2. gestion des modules revers Proxy 
+2. Gestion des modules revers Proxy 
 ======================================
 
 Pour utilisé activé le module ssl et le module proxy , nous devons utilisé 
 certain comande. Mais avant cela nous devons vérifier les modules activés
 
-Liste de tout les modules activé.
+Liste de tout les modules activé
 
 .. code-block:: bash
     :linenos:
 
     sudo apachectl -t -D DUMP_MODULES
 
-voici le résultat 
+Voici le résultat 
 
 .. image:: ../image/ubuntu_apache_mod_active.png
     :width: 800
-    :alt: image repertoire log tomcat9
+    :alt: image terminal liste des module activés
 
 Dans cette exemple les module ssl et proxy sont déjà activé. Si vous devez les activés,
 utilisé les commande suivant.
@@ -495,4 +493,82 @@ utilisé les commande suivant.
     a2enmod ssl
     a2enmod proxy_http
 
-Une fois installer vérifier qu'il soit activé puis redémarrer le server apache.
+Sur l'image en orange vous voyez les dossiers contenant la configuration
+
+.. image:: ../image/ubuntu_apache_dossier.png
+    :width: 800
+    :alt: image repertoire de configuration apache 
+
+Pour s'y rendre rapidement 
+
+.. code-block:: bash
+    :linenos:
+
+    /etc/apache2/mods-enabled
+    /etc/apache2/mods-available
+
+Une fois installer vérifier qu'il soit activé , pour cela vous pouvez utilisé les 
+commandes précédement utilisé pour listé les modules ou allez vérifier manuellement 
+dans le dossier qu'il soit bien activé.
+
+.. image:: ../image/ubuntu_apache_mod_active_termianl.png
+    :width: 800
+    :alt: image liste des modules activé d'apache
+
+Puis rechargé ou redémarrer le server apache pour les module soit bien pris en compte.
+
+.. code-block:: bash
+    :linenos:
+
+    sudo systemctl reload apache2
+    sudo systemctl restart apache2
+
+3. Les fichiers de configuration httpd.conf
+=============================================
+
+Ces fichier joue un rôle centrale pour la gestion de la redirection des requête.
+
+En effet, 
+    pour chaque application, site internet ou autre besoin, vous aurez besoin de
+    configurer ces fichier. apache serveur utilise a un mécanime de lien symbolique 
+    pour mettre en service les applications.
+
+    Dans le dossier ``/site-available/`` ce trouve tous les fichier de configuration. 
+    Ces fichier une fois configuré ce mis en service via un lien symbolique qui sera créer 
+    dans le dossier ``/site-enable``. 
+
+Ces dossier ce trouve dans les repertoires d'apache 
+
+.. code-block:: bash
+    :linenos:
+
+    cd /etc/apache2
+
+Est voici ce qu'il contient. 
+    Au passage, vous pouvez voir en rouge les dossiers en charge de la configuration
+    et en orange les dossier en charge de la gestion des modules.
+
+.. image:: ../image/ubuntu_apache_dossier.png
+    :width: 800
+    :alt: image repertoire de configuration apache 
+
+Vous pouvez remarquer que le gestionnaire de version git et utilisé 
+pour avoir une bonne gestion de ces fichier.
+
+.. image:: ../image/ubuntu_apache_httpd_available.png
+    :width: 800
+    :alt: image repertoire available
+
+Voici le dossier contenant toute les application activé 
+
+.. image:: ../image/ubuntu_apache_httpd_enable.png
+    :width: 800
+    :alt: image repertoire enable
+
+Comme vous pouvez le voir chaque configuration possède son numéro avec son nom.
+Vous avez pour chaque configuration sont pendant en SSL qui a était générer 
+par `let's encrypt <https://letsencrypt.org/fr/>`_ qui est un outils de gestion 
+des certificats permettant l'encodage du trafict le rendent sécurisé via apache serveur. 
+Cette parti est plus développer dans la section ``Gestion du SSL``.
+
+

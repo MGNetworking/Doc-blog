@@ -9,28 +9,10 @@ Documentation du blog **ghoverblog** !
 Ce projet a pluisieur objectif. Il constitue une base d’expérience solide en création, 
 gestion et mise à jour d’un site internet. 
 
-
-#. La création et la gestion d'un serveur virtuelle :
-
-   * La création d'une machine virtuelle linux ``Ubuntu``, sont administration distance via le terminal
-   * La partie réseau avec l'achat du nom de domaines la gestion des sous domaines.
-   * La gestion d'un serveur Proxy avec ``Apache serveur`` pour la gestion des flux entrant sortant.
-   * La création d'une base de données ``PostgreSQL`` avec la gestion des permissions et la gestion sur le réseau local.
-
-#. La gestion de la sécurité du serveur et du site :
- 
-   * La gestion du pare-feu pour sécurisé tous les ports.
-   * La création d'un micro service de sécurité ``Keycloak`` avec la connection de celui-ci à Postgresql.
-
-#. La parti mise en service du site :
- 
-   * La parti Devops avec ``Jenkins`` qui permet la mise en production du site en correspondance avec ``Github``  
-
-
 .. image:: doc/image/decoration.jpg
     :width: 250
     :alt: image décoration informatique
-    :align: right
+    :align: left
 
 L'objectif de ce blog et de posté des articles portant sur l'informatique faisant référence a d'autre article 
 ou des tutoriel.
@@ -39,7 +21,25 @@ Un espace commentaire sera dédier à chaque article permettant d'avoir un écha
 qui souhaitre intervenir sur l'article.
 
 Cette documentation permet de rassemblé tout les informations concernant la gestion et la création du site.  
-Dans cette objectif, celle servira d'aide-mémoire sur les choix et la compréhention.
+Dans cette objectif, cette documentation servira d'aide-mémoire sur les choix et la compréhention.
+
+Pour résumer ce cette documantation permettra :
+
+#. La création et la gestion d'un serveur virtuelle 
+
+   * La création d'une machine virtuelle linux ``Ubuntu``, sont administration distance via le terminal
+   * La partie réseau avec l'achat du nom de domaines la gestion des sous domaines.
+   * La gestion d'un serveur Proxy avec ``Apache serveur`` pour la gestion des flux entrant sortant.
+   * La création d'une base de données ``PostgreSQL`` avec la gestion des permissions et la gestion sur le réseau local.
+
+#. La gestion de la sécurité du serveur et du site 
+ 
+   * La gestion du pare-feu pour sécurisé tous les ports.
+   * La création d'un micro service de sécurité ``Keycloak`` avec la connection de celui-ci à Postgresql.
+
+#. La parti mise en service du site 
+ 
+   * La parti Devops avec ``Jenkins`` qui permet la mise en production du site en correspondance avec ``Github``  
 
 .. Information sur serveur virtuelle Ubuntu 
 .. toctree::
@@ -47,12 +47,12 @@ Dans cette objectif, celle servira d'aide-mémoire sur les choix et la compréhe
    :caption: Ubuntu Serveur
 
    doc/Serveur/Installation du serveur Ubuntu
-   doc/Serveur/Production
    doc/Serveur/Connexion SSH
    doc/Serveur/PostgreSQL
    doc/Serveur/Jenkins
    doc/Serveur/Apache serveur
    doc/Serveur/Tomcat
+   doc/Serveur/Production
 
 
    doc/Serveur/Installation/Git serveur
