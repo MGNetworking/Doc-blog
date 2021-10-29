@@ -20,23 +20,17 @@ node {
     // Phase de gestion de compilation de la documentation 
     stage('Build de la documentation') {
 
-                // création de l'environement
-                sh '''sudo virtualenv env '''
-             
+        // création de l'environement
+        sh '''sudo virtualenv env '''
 
-            
-                // placer le terminal dans l'environement
-                sh ''' . env/bin/activate '''
-            
+        // placer le terminal dans l'environement
+        sh ''' . env/bin/activate '''
+ 
+        // Importé et installer les dépendances du projet dans l'environement Python 
+        sh ''' pip install -r requirements.txt '''
 
-           
-                // Importé et installer les dépendances du projet dans l'environement Python 
-                sh ''' pip install -r requirements.txt '''
-           
-
-            
-                // Compilation du projet dans le repertoire de jenkins
-                sh '''  make html '''
+        // Compilation du projet dans le repertoire de jenkins
+        sh '''  make html '''
         
      }
 
@@ -44,16 +38,19 @@ node {
     stage(' Suppression de l\'ancienne version ') {
 
         try{
-            
             sh ''' rm -r /home/prod/doc-ghoverblog/* '''
             currentBuild.result = 'FAILED'
 
         }catch (errors) {
+
             echo 'Fichier source no supprimer !'
+
         }finally{
+
             if (currentBuild.result != 'FAILED'){
-                echo 'Suppression de fichier réussi !'
+                echo 'Etape suppression de fichier finis '
             }
+
         }
 
     }
@@ -65,9 +62,6 @@ node {
 
 
     post {
-
-        // Déactivatation de l'environement du terminal 
-        sh ''' deactivate '''
 
         // suppression des élements contenu dans le repertoire temporaire
         always {
