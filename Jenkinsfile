@@ -1,10 +1,10 @@
 node {
     
-    environment {
-        ID_CREDENTIAL = 'a995d9c5-a16f-4f87-8c33-7b40e16f9f20'
-        SSH_URL_GITHUB = 'git@github.com:MGNetworking/ghoverblog_Documentation-.git'
-        Branch = 'main'
-    }
+    
+    def ID_CREDENTIAL = 'a995d9c5-a16f-4f87-8c33-7b40e16f9f20'
+    def SSH_URL_GITHUB = 'git@github.com:MGNetworking/ghoverblog_Documentation-.git'
+    def Branch = 'main'
+    
 
     stage('Clone du projet') {
 
@@ -13,7 +13,7 @@ node {
         echo '***************************************'
           
     // get depot with credentials
-    git branch: 'main' , credentialsId: 'a995d9c5-a16f-4f87-8c33-7b40e16f9f20' , url: 'git@github.com:MGNetworking/ghoverblog_Documentation-.git'
+    git branch: Branch , credentialsId: ID_CREDENTIAL , url: SSH_URL_GITHUB
                 
     }
 
