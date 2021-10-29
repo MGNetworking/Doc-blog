@@ -52,7 +52,7 @@ node {
             sh ''' rm -r /home/prod/doc-ghoverblog/* '''
             currentBuild.result = 'FAILED'
 
-        }catch{
+        }catch (errors) {
             echo 'Fichier source no supprimer !'
         }finally{
             if (currentBuild.result != 'FAILED'){
