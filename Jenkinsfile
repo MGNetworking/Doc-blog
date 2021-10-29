@@ -87,7 +87,7 @@ node {
             //  déplacement du build vers le fichier html
             sh "cp -r /var/lib/jenkins/workspace/Documentation-ghoverblog/_build/html/* /home/prod/doc-ghoverblog/"
 
-            sh "deactivate"
+           cleanWs()
        
     }
 }
