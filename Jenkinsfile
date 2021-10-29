@@ -20,17 +20,25 @@ node {
     // Phase de gestion de compilation de la documentation 
     stage('Build de la documentation') {
 
-        // création de l'environement
-        sh '''sudo virtualenv env '''
+            steps {
+                // création de l'environement
+                sh '''sudo virtualenv env '''
+             }
 
-        // placer le terminal dans l'environement
-        sh ''' . /env/bin/activate '''
+            steps {
+                // placer le terminal dans l'environement
+                sh ''' . /env/bin/activate '''
+            }
 
-        // Importé et installer les dépendances du projet dans l'environement Python 
-        sh ''' pip install -r requirements.txt '''
+            steps {
+                // Importé et installer les dépendances du projet dans l'environement Python 
+                sh ''' pip install -r requirements.txt '''
+           }
 
-        // Compilation du projet dans le repertoire de jenkins
-        sh '''  make html '''
+            steps {
+                // Compilation du projet dans le repertoire de jenkins
+                sh '''  make html '''
+          }
      }
 
     stage(' Suppression de l\'ancienne version ') {
