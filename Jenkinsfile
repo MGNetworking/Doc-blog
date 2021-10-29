@@ -15,7 +15,7 @@ node {
     stage('**************************************** \n  Build to documentation \n **************************************** ') {
 
         // création de l'environement
-        sh ''' python -m venv env '''
+        sh ''' python3 -m venv env '''
 
         // placer le terminal dans l'environement
         sh ''' source ./env/bin/activate '''
@@ -42,7 +42,7 @@ node {
 
         // Déactivatation de l'environement du terminal 
         sh ''' deactivate '''
-        
+
         // suppression des élements contenu dans le repertoire temporaire
         always {
             cleanWs()
