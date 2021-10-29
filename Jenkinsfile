@@ -88,14 +88,16 @@ node {
 
             //  déplacement du build vers le fichier html
             sh "cp -r /var/lib/jenkins/workspace/Documentation-ghoverblog/_build/html/* /home/prod/doc-ghoverblog/"
+            buildResult = 'BUILD SUCCESSFUL'
         }catch (errors) {
 
             echo '****************************************************'
             echo "Copie pendant la copie du fichier source : ${errors}"
             echo '****************************************************'
 
-        }finally{
+            buildResult  = 'FAILED'
 
+        }finally{
 
             echo '*********************************'
             echo "Fin de l'étape de Copie du build "
