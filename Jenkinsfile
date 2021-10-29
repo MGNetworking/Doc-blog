@@ -1,5 +1,7 @@
 pipeline {
 
+    agent any
+
     environment {
         ID_CREDENTIAL = 'a995d9c5-a16f-4f87-8c33-7b40e16f9f20'
         SSH_URL_GITHUB = 'git@github.com:MGNetworking/ghoverblog_Documentation-.git'
@@ -7,7 +9,7 @@ pipeline {
     }
 
     stages {
-        
+
             stage('Clone du projet') {
 
                 echo '***************************************'
