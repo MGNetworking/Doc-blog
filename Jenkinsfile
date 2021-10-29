@@ -1,24 +1,24 @@
-node {
+pipeline {
 
-    stage('Clone du projet ') {
-        // get depot with credentials
-        git branch: 'main', credentialsId: 'a995d9c5-a16f-4f87-8c33-7b40e16f9f20' , url: 'git@github.com:MGNetworking/ghoverblog_Documentation-.git'
+    environment {
+        ID_CREDENTIAL = 'a995d9c5-a16f-4f87-8c33-7b40e16f9f20'
+        SSH_URL_GITHUB = 'git@github.com:MGNetworking/ghoverblog_Documentation-.git'
+        Branch = 'main'
     }
-    
-    stage('**************************************** \n Récupération de l\'environement Python \n ****************************************') {
-        // recupération de l'environement Python a partir du fichier requirements.txt
-        sh '''  pip install -r requirements.txt '''
-     }
 
+    stage('Clone du projet') {
+        // get depot with credentials
+        git branch: ${Branch} , credentialsId: ${ID_CREDENTIAL} , url: ${SSH_URL_GITHUB}
+    }
 
     // Phase de gestion de compilation de la documentation 
-    stage('**************************************** \n  Build to documentation \n **************************************** ') {
+    stage('**************************************** \n  Build de la documentation \n **************************************** ') {
 
         // création de l'environement
-        sh ''' python3 -m venv env '''
+        sh ''' virtualenv env '''
 
         // placer le terminal dans l'environement
-        sh ''' source ./env/bin/activate '''
+        sh ''' . /env/bin/activate '''
 
         // Importé et installer les dépendances du projet dans l'environement Python 
         sh ''' pip install -r requirements.txt '''
