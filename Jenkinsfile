@@ -20,7 +20,7 @@ node {
     // Phase de gestion de compilation de la documentation 
     stage('Build de la documentation') {
 
-            def res = sh(script: it, returnStatus: true)
+            def res = sh( returnStatus: true)
 
         println('Build de la documentation => $res ')
             
