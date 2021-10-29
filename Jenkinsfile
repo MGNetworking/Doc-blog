@@ -20,6 +20,9 @@ node {
     // Phase de gestion de compilation de la documentation 
     stage('Build de la documentation') {
 
+            def res = sh(script: it, returnStatus: true)
+
+        println('Build de la documentation => $res ')
             
                 // création de l'environement
                 sh '''sudo virtualenv env '''
@@ -41,9 +44,22 @@ node {
         
      }
 
+    // supression de la version précedante 
     stage(' Suppression de l\'ancienne version ') {
-        // supression de la version précedante 
-        sh ''' rm -r /home/prod/doc-ghoverblog/* '''
+
+        try{
+            
+            sh ''' rm -r /home/prod/doc-ghoverblog/* '''
+            currentBuild.result = 'FAILED'
+
+        }catch{
+            echo 'Fichier source no supprimer !'
+        }finally{
+            if (currentBuild.result != 'FAILED'){
+                echo 'Suppression de fichier réussi !'
+            }
+        }
+
     }
 
     stage('Déplacement du build vers répertoir d\'accueil' ) {
