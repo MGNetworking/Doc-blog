@@ -27,7 +27,7 @@ node {
 
             
                 // placer le terminal dans l'environement
-                sh ''' . /env/bin/activate '''
+                sh ''' . env/bin/activate '''
             
 
            
