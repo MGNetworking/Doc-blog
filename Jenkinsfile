@@ -38,6 +38,7 @@ node {
     stage(' Suppression de l\'ancienne version ') {
 
         try{
+            
             sh ''' rm -r /home/prod/doc-ghoverblog/* '''
             currentBuild.result = 'FAILED'
 
@@ -50,18 +51,23 @@ node {
             if (currentBuild.result != 'FAILED'){
                 echo 'Etape suppression de fichier finis '
             }
-
+            
         }
 
     }
 
     stage('Déplacement du build vers répertoir d\'accueil' ) {
         //  déplacement du build vers le fichier html
-        sh '''cp -r /var/lib/jenkins/workspace/Documentation-ghoverblog/_build/html/* /home/prod/doc-ghoverblog/ '''
+        sh '''
+        cp -r /var/lib/jenkins/workspace/Documentation-ghoverblog/_build/html/* /home/prod/doc-ghoverblog/ 
+        '''
     }
 
 
     post {
+
+        echo 'désactivation de l\'environement'
+        sh '''deactivate'''
 
         // suppression des élements contenu dans le repertoire temporaire
         always {
