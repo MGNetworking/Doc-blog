@@ -1,4 +1,4 @@
-pipeline {
+node {
 
     agent any
 
@@ -11,7 +11,7 @@ pipeline {
             stage('Clone du projet') {
                 step{
                 // get depot with credentials
-                git branch: ${Branch} , credentialsId: ${ID_CREDENTIAL} , url: ${SSH_URL_GITHUB}
+                git branch: 'main' , credentialsId: 'a995d9c5-a16f-4f87-8c33-7b40e16f9f20' , url: 'git@github.com:MGNetworking/ghoverblog_Documentation-.git'
                 }
 
             
