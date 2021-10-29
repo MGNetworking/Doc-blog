@@ -21,7 +21,7 @@ node {
     stage('Build de la documentation') {
 
         // création de l'environement
-        sh ''' virtualenv env '''
+        sh '''sudo virtualenv env '''
 
         // placer le terminal dans l'environement
         sh ''' . /env/bin/activate '''
