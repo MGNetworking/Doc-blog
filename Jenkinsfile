@@ -14,10 +14,10 @@ node {
     stage('Build to documentation ') {
 
         // ce placé dans l'environement
-        sh ''' .\env\Scripts\activate '''
+        sh ''' ./env/Scripts/activate '''
 
         // Compilation du projet dans le repertoire de jnekins
-        sh '''  .\make.bat html '''
+        sh '''  ./make.bat html '''
      }
 
     stage('Suppression de l\'ancienne version ') {
