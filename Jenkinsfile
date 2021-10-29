@@ -71,7 +71,15 @@ node {
 
         // suppression des élements contenu dans le repertoire temporaire
         always {
-            cleanWs()
+            echo "post always"
+        }
+
+        success{
+            echo "post success"
+        }
+
+        failure{
+            echo "post failure"
         }
   }
 }
