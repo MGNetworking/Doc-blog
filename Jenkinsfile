@@ -59,9 +59,10 @@ node {
                             
             sh ''' rm -r /home/prod/doc-ghoverblog/* '''
             
+            currentBuild.result = 'SUCCESS'
 
         }catch (errors) {
-            
+
             echo '********************************'
             echo 'Fichier source non supprimer !!!'
             echo '********************************'

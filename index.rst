@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Documentation du bloog **ghoverblog** !
+Documentation du blog **ghoverblog** !
 ========================================
 
 Ce projet a pluisieur objectif. Il constitue une base d’expérience solide en création, 
