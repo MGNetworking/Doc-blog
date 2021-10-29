@@ -58,12 +58,15 @@ node {
         try{
                             
             sh ''' rm -r /home/prod/doc-ghoverblog/* '''
-            currentBuild.result = 'FAILED'
+            
 
         }catch (errors) {
+            
             echo '********************************'
             echo 'Fichier source non supprimer !!!'
             echo '********************************'
+
+            currentBuild.result = 'FAILED'
 
         }finally{
 
