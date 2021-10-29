@@ -78,10 +78,28 @@ node {
                 
     }
 
-    stage('Déplacement du build vers répertoir d\'accueil' ) {
+    stage('Copie du build vers répertoir d\'accueil' ) {
          
-        //  déplacement du build vers le fichier html
-        sh "cp -r /var/lib/jenkins/workspace/Documentation-ghoverblog/_build/html/* /home/prod/doc-ghoverblog/ "
-            
-    }
+            echo '******************************************'
+            echo 'Copie du build vers répertoir d\'accueil'
+            echo '******************************************'
+
+         try{
+
+            //  déplacement du build vers le fichier html
+            sh "cp -r /var/lib/jenkins/workspace/Documentation-ghoverblog/_build/html/* /home/prod/doc-ghoverblog/"
+        }catch (errors) {
+
+            echo '****************************************************'
+            echo "Copie pendant la copie du fichier source : ${errors}"
+            echo '****************************************************'
+
+        }finally{
+
+
+            echo '*********************************'
+            echo "Fin de l'étape de Copie du build "
+            echo '*********************************'
+
+        }
 }
