@@ -20,10 +20,6 @@ node {
     // Phase de gestion de compilation de la documentation 
     stage('Build de la documentation') {
 
-            def res = sh( returnStatus: true)
-
-        println('Build de la documentation => $res ')
-            
                 // création de l'environement
                 sh '''sudo virtualenv env '''
              
