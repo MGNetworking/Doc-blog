@@ -10,7 +10,12 @@ node {
         sh '''  pip install -r requirements.txt '''
      }
 
+
     stage('Build to documentation ') {
+
+        // ce placé dans l'environement
+        sh ''' .\env\Scripts\activate '''
+
         // Compilation du projet dans le repertoire de jnekins
         sh '''  .\make.bat html '''
      }
