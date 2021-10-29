@@ -46,8 +46,6 @@ node {
 
         // Compilation du projet dans le repertoire de jenkins
         sh "make html"
-                    
-        sh "deactivate"
     }
 
     // supression de la version précedante 
