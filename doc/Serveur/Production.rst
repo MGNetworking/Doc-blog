@@ -5,7 +5,7 @@ L'organisation des fichiers
 ---------------------------
 
 1. Les repertoires 
-======================
+=====================
 
 Dans le but de séparer les élements de la production,
     j'ai créer dans le repertoire ``/Home`` 
@@ -23,6 +23,13 @@ Dans le but de séparer les élements de la production,
 .. image:: ../image/ubuntu_serveur_lien_dynamique_apache.png
     :width: 800
     :alt: image apache lien dynamique apache serveur
+
+Accés rapide à ce repertoire
+
+.. code-block:: bash
+    :linenos:
+
+    /var/www
 
 Sur cette image vous pouvez voir tout les lien de redirection qui pointe vers les sources.
 
