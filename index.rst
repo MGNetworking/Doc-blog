@@ -6,7 +6,7 @@
 Documentation du blog **ghoverblog** !
 ========================================
 
-Ce projet a pluisieur objectif. Il constitue une base d’expérience solide en création, 
+Ce projet a plusieurs objectif. Il constitue une base d’expérience solide en création,
 gestion et mise à jour d’un site internet. 
 
 .. image:: doc/image/decoration.jpg
@@ -18,12 +18,12 @@ L'objectif de ce blog et de posté des articles portant sur l'informatique faisa
 ou des tutoriel.
 
 Un espace commentaire sera dédier à chaque article permettant d'avoir un échange entre les utilisateurs connecter au site 
-qui souhaitre intervenir sur l'article.
+qui souhaiterai intervenir sur l'article.
 
 Cette documentation permet de rassemblé tout les informations concernant la gestion et la création du site.  
-Dans cette objectif, cette documentation servira d'aide-mémoire sur les choix et la compréhention.
+Dans cette objectif, cette documentation servira d'aide-mémoire sur les choix et la comprehension.
 
-Pour résumer ce cette documantation permettra :
+Pour résumer ce cette documentation permettra :
 
 #. La création et la gestion d'un serveur virtuelle 
 
