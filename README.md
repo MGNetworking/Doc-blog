@@ -1,5 +1,12 @@
 # Doc projet
 
+# 📦 **Statut : Archivé** 📦
+
+<div align="center">
+  <h3 style="color: orange;">🚨 Ce projet est désormais archivé ! 🚨</h3>
+  <p>Il est conservé uniquement à des fins de documentation et ne sera plus maintenu.</p>
+</div>
+
 - [Run](#run)
 - [Erreur de permission](#erreur-de-permission)
 
